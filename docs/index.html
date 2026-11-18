@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100e17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="A touch-first launcher for your local EaglercraftX 1.8 client.">
+  <title>Voxelpad — Minecraft browser launcher</title>
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="manifest" href="./app.webmanifest">
+  <link rel="stylesheet" href="./app.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zM3 7l9 5 9-5M12 12v10M7.5 4.5l9 5v5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h5m4 0h7M4 12h9m4 0h3M4 18h2m4 0h10M9 4v4m8 2v4m-7 2v4"/></symbol>
+    <symbol id="i-touch" viewBox="0 0 24 24"><path d="M8 13V5a1.5 1.5 0 0 1 3 0v6l1-1a1.5 1.5 0 0 1 2 1l1-.5a1.5 1.5 0 0 1 2 1l1-.2a1.5 1.5 0 0 1 2 1.5v3a5 5 0 0 1-5 5h-2a5 5 0 0 1-4-2l-4-5a1.5 1.5 0 0 1 2-2l1 1zM5 5a4.5 4.5 0 0 1 9 0"/></symbol>
+    <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-4 4 4-4 4 4M5 15v5h14v-5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-12h-6z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6m0-6-9 9m0-9H5v14h14v-5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m6 6-6-6 6-6"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5m0 6v5h-5m-6 0H4v-5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V5h7l2 2h9v12H3z"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M10 10h.01M14 10h.01M17 10h.01M7 14h.01M10 14h4m3 0h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2.5M15 22v-3a2.5 2.5 0 0 0-.7-2c3-.4 6-1.5 6-6A4.8 4.8 0 0 0 19 7.7c.1-.4.5-1.7-.2-3.2 0 0-1.1-.4-3.6 1.3a12 12 0 0 0-6.4 0C6.3 4.1 5.2 4.5 5.2 4.5 4.5 6 4.9 7.3 5 7.7a4.8 4.8 0 0 0-1.3 3.4c0 4.5 3 5.6 6 6a2.5 2.5 0 0 0-.7 2v3"/></symbol>
+  </svg>
+  <a class="skip" href="#main">Skip to launcher</a>
+  <div id="launcher" class="launcher">
+    <header class="header">
+      <div class="header-inner">
+        <button class="brand" type="button" data-home aria-label="Voxelpad home">
+          <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg></span>
+          <span>VOXEL<span class="brand-accent">PAD</span></span>
+        </button>
+        <nav class="nav" aria-label="Launcher">
+          <button class="nav-tab active" type="button" aria-current="page" data-home><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Play</button>
+          <button class="nav-tab" type="button" data-open="settings"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>Settings</button>
+          <button class="nav-tab" type="button" data-open="controls"><svg class="icon" aria-hidden="true"><use href="#i-touch"/></svg>Controls</button>
+        </nav>
+        <button class="device-pill" type="button" data-open="install"><svg class="icon" aria-hidden="true"><use href="#i-tablet"/></svg><span>Made for iPad</span></button>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <picture class="hero-art" aria-hidden="true">
+          <source media="(max-width: 680px)" srcset="./assets/rift-small.webp">
+          <img src="./assets/rift.webp" alt="" width="1440" height="810" fetchpriority="high">
+        </picture>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pixel" aria-hidden="true"></span> THE TABLET LAUNCHER</div>
+          <h1 id="hero-title">Your world.<br><span>Your iPad.</span></h1>
+          <p>Launch your Minecraft 1.8 browser client with native touch controls and rendering presets built for iPad.</p>
+          <div class="hero-actions">
+            <button class="button primary" id="main-action" type="button"><svg class="icon" aria-hidden="true"><use id="main-action-icon" href="#i-upload"/></svg><span id="main-action-label">Import client</span></button>
+            <button class="button secondary" type="button" data-open="controls"><svg class="icon" aria-hidden="true"><use href="#i-touch"/></svg>Touch guide</button>
+          </div>
+          <div class="hero-meta"><span class="status-dot" id="hero-dot"></span><span id="hero-status">Awaiting client</span><span class="meta-divider" aria-hidden="true"></span><span>EAGLERCRAFTX 1.8 · U53</span></div>
+        </div>
+        <div class="hero-caption" aria-hidden="true"><span class="caption-cross">+</span><span>RIFT / 01</span></div>
+      </section>
+
+      <section class="setup" aria-labelledby="setup-title">
+        <div class="section-title">
+          <div class="section-heading"><span class="heading-pixel" aria-hidden="true"></span><h2 id="setup-title">Launch setup</h2></div>
+          <span class="section-index">DEVICE CONSOLE / 01</span>
+        </div>
+        <div class="setup-grid">
+          <button class="setup-card" type="button" data-open="import">
+            <span class="card-top"><span class="card-icon lilac"><svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg></span><svg class="icon card-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            <span class="card-title">Local client</span>
+            <span class="card-description" id="client-description">Add your offline ZIP or HTML file. It stays on this device.</span>
+            <span class="card-tag lilac" id="client-tag">NOT IMPORTED</span>
+          </button>
+          <button class="setup-card" type="button" data-open="settings">
+            <span class="card-top"><span class="card-icon mint"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span><svg class="icon card-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            <span class="card-title">Performance</span>
+            <span class="card-description">Pick a render profile for better battery life or sharper detail.</span>
+            <span class="card-tag mint" id="profile-tag">BALANCED</span>
+          </button>
+          <button class="setup-card" type="button" data-open="controls">
+            <span class="card-top"><span class="card-icon peach"><svg class="icon" aria-hidden="true"><use href="#i-touch"/></svg></span><svg class="icon card-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            <span class="card-title">Touch controls</span>
+            <span class="card-description">Move, build, and explore with the in-game touch layout.</span>
+            <span class="card-tag peach">NATIVE TOUCH</span>
+          </button>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>Local files only. No uploads or accounts.</span></div>
+        <div class="footer-links">
+          <a href="https://apps.apple.com/ie/app/minecraft/id479516143" target="_blank" rel="noopener noreferrer">Official iPad app <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
+          <a href="https://github.com/ardy03851-bit/voxelpad" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Source</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="panel" class="panel" aria-labelledby="panel-title">
+    <div class="panel-inner">
+      <button type="button" class="icon-button panel-close" id="panel-close" aria-label="Close panel" title="Close panel"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <div id="panel-content"></div>
+    </div>
+  </dialog>
+
+  <template id="template-import">
+    <div class="panel-kicker">CLIENT LIBRARY</div>
+    <h2 id="panel-title">Import your client</h2>
+    <p>Choose the signed EaglercraftX 1.8 u53 offline ZIP or the HTML inside it. Only that verified build is supported.</p>
+    <div id="file-zone" class="file-zone">
+      <svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg>
+      <div><strong id="selected-file">No client selected</strong><small id="file-detail">ZIP or HTML from the Files app</small></div>
+      <button class="button secondary" id="choose-file" type="button">Choose file</button>
+    </div>
+    <input id="file-input" type="file" accept=".zip,.html,.htm,application/zip,text/html" class="visually-hidden" tabindex="-1" aria-label="Choose an EaglercraftX client file">
+    <p class="notice" id="import-notice" role="status"></p>
+    <label class="check-line"><input type="checkbox" id="remember-client" checked> Keep the verified file on this device</label>
+    <div class="panel-actions">
+      <button class="button primary" id="panel-launch" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>Launch game</button>
+      <button class="button subtle" id="forget-client" type="button" hidden>Remove client</button>
+    </div>
+    <p class="panel-note"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> No game files are uploaded. This launcher runs the imported build in offline singleplayer mode.</p>
+  </template>
+
+  <template id="template-settings">
+    <div class="panel-kicker">RENDER SETTINGS</div>
+    <h2 id="panel-title">Performance</h2>
+    <p>Choose what the client should prioritize at launch. All profiles keep VSync on and shaders off.</p>
+    <fieldset class="profile-list">
+      <legend class="visually-hidden">Graphics profile</legend>
+      <label class="profile-option"><input type="radio" name="profile" value="battery"><span><strong>Battery Saver</strong><small>3 chunks · 1× render scale · minimal particles</small></span></label>
+      <label class="profile-option"><input type="radio" name="profile" value="balanced"><span><strong>Balanced</strong><small>4 chunks · up to 1.5× render scale · reduced particles</small></span></label>
+      <label class="profile-option"><input type="radio" name="profile" value="sharp"><span><strong>Sharp</strong><small>6 chunks · native render scale · full particles</small></span></label>
+    </fieldset>
+    <label class="range-heading" for="touch-opacity"><span>Touch button opacity</span><output id="opacity-value" for="touch-opacity">85%</output></label>
+    <input type="range" min="40" max="100" step="5" id="touch-opacity">
+    <p class="notice" id="settings-notice" role="status"></p>
+    <div class="panel-actions"><button class="button primary" id="save-settings" type="button"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Apply settings</button></div>
+  </template>
+
+  <template id="template-controls">
+    <div class="panel-kicker">FIELD GUIDE</div>
+    <h2 id="panel-title">Touch controls</h2>
+    <p>Tap inside the game to switch to its built-in touch layout. Landscape gives your thumbs more room.</p>
+    <div class="control-map" aria-label="Touch layout illustration">
+      <span class="control-side"><span class="dpad" aria-hidden="true"><span>↑</span><span>←</span><span>↓</span><span>→</span></span><strong>Move</strong></span>
+      <span class="control-crosshair" aria-hidden="true">+</span>
+      <span class="control-side"><span class="aim-box"><svg class="icon" aria-hidden="true"><use href="#i-touch"/></svg></span><strong>Drag to look</strong></span>
+    </div>
+    <ul class="guide-list">
+      <li><strong>Move and look</strong><span>Use the left directional pad to move and drag the world view to turn.</span></li>
+      <li><strong>Build and interact</strong><span>Use the game’s action buttons to break, place, or use blocks and items.</span></li>
+      <li><strong>Keep your progress</strong><span>Use Save and Quit in-game before returning to the launcher. Export worlds before clearing browser data.</span></li>
+    </ul>
+    <div class="panel-actions"><button class="button primary" type="button" data-dismiss>Done</button></div>
+  </template>
+
+  <template id="template-install">
+    <div class="panel-kicker">IPAD SETUP</div>
+    <h2 id="panel-title">Make it feel like an app</h2>
+    <p>For more room to play, open the public site in Safari and add it to your Home Screen.</p>
+    <ol class="guide-list steps">
+      <li><strong>Open the Share menu</strong><span>Tap the Share button in Safari’s toolbar.</span></li>
+      <li><strong>Add to Home Screen</strong><span>Choose Add to Home Screen. Turn on Open as Web App if shown, then tap Add.</span></li>
+      <li><strong>Import in that app</strong><span>Open Voxelpad from your Home Screen and import your client there. Safari and the Home Screen app may keep separate browser data.</span></li>
+    </ol>
+    <div class="panel-actions"><button class="button primary" type="button" data-dismiss>Done</button></div>
+  </template>
+
+  <template id="template-exit">
+    <div class="panel-kicker">GAME SESSION</div>
+    <h2 id="panel-title">Return to Voxelpad?</h2>
+    <p>If you’re in a world, use Save and Quit in the game first. Closing the session now could lose unsaved progress.</p>
+    <div class="panel-actions"><button class="button secondary" type="button" data-dismiss>Keep playing</button><button class="button primary" id="confirm-exit" type="button">Close game</button></div>
+  </template>
+
+  <section id="game" class="game" aria-label="Game session" hidden>
+    <header class="game-bar">
+      <button class="button subtle" type="button" id="exit-game"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg><span>Launcher</span></button>
+      <span class="game-name">EAGLERCRAFTX <span>1.8 / U53</span></span>
+      <button class="icon-button" id="fullscreen" type="button" aria-label="Expand game" title="Expand game"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg></button>
+    </header>
+    <div id="game-stage" class="game-stage">
+      <div id="game-loading" class="game-loading" role="status">
+        <span class="loading-cube"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg></span>
+        <strong id="game-loading-title">Opening your client</strong>
+        <span id="game-loading-detail">Preparing your local game file…</span>
+        <button class="button secondary" id="cancel-launch" type="button">Back to launcher</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

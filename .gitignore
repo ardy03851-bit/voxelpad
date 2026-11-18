@@ -1,0 +1,7 @@
+node_modules/
+playwright-report/
+test-results/
+*.jar
+*.zip
+*Offline_Signed.html
+.DS_Store
